@@ -1,0 +1,93 @@
+/* ---------- toasts ---------- */
+.toaster {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: min(380px, calc(100vw - 2 * var(--gutter)));
+}
+
+.toast {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.85rem 0.9rem;
+  background: var(--surface-hi);
+  border: 1px solid var(--line-hi);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  animation: toast-in 0.22s ease-out;
+}
+.toast--success {
+  border-left-color: var(--green);
+}
+.toast--success .toast__icon {
+  color: var(--green);
+}
+.toast--error {
+  border-left-color: var(--red);
+}
+.toast--error .toast__icon {
+  color: var(--red);
+}
+.toast__icon {
+  display: grid;
+  place-items: center;
+  height: 22px;
+}
+.toast__close {
+  border: 0;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  padding: 2px;
+}
+.toast__close:hover {
+  color: var(--text);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- confirm dialog ---------- */
+.dialog {
+  padding: 0;
+  border: 1px solid var(--line-hi);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  width: min(440px, calc(100vw - 2rem));
+}
+.dialog::backdrop {
+  background: rgba(4, 7, 10, 0.72);
+}
+.dialog__body {
+  padding: 1.6rem;
+}
+.dialog h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.dialog__text {
+  color: var(--text-dim);
+}
+.dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}

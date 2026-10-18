@@ -1,0 +1,218 @@
+.hero {
+  padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.hero__copy {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: start;
+}
+.hero h1 {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+.hero h1 em {
+  color: var(--ember);
+  font-weight: 400;
+}
+.hero__lede {
+  max-width: 48ch;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+}
+
+.hero__search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 560px;
+  padding: 0.4rem 0.4rem 0.4rem 1rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius);
+  color: var(--text-faint);
+  transition: border-color 0.15s;
+}
+.hero__search:focus-within {
+  border-color: var(--teal);
+}
+.hero__search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+}
+.hero__search input:focus {
+  outline: none;
+}
+.hero__search input::placeholder {
+  color: var(--text-faint);
+}
+
+.hero__try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+}
+.hero__try button {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dotted var(--text-faint);
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+.hero__try button:hover {
+  color: var(--ember);
+  border-color: var(--ember);
+}
+
+/* the editorial "on the calendar" list */
+.hero__calendar {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.hero__calendar-head {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.hero__calendar-head h2 {
+  font-size: 1.5rem;
+}
+
+.calendar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.calendar__row {
+  border-top: 1px solid var(--line);
+}
+.calendar__row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.calendar__row a {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: var(--text-faint);
+  transition: color 0.15s;
+}
+.calendar__row a:hover {
+  color: var(--ember);
+}
+.calendar__row a:hover .calendar__name {
+  color: var(--ember);
+}
+.calendar__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.calendar__day {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+}
+.calendar__month {
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.calendar__what {
+  display: grid;
+  min-width: 0;
+}
+.calendar__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.calendar__where {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+.home-section {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 0;
+}
+.home-section:last-child {
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+/* category index: big serif rows, like the contents page of a programme */
+.category-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.category-rows li {
+  border-bottom: 1px solid var(--line);
+}
+.category-rows a {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 0;
+  text-decoration: none;
+  transition: padding-left 0.2s, color 0.2s;
+}
+.category-rows a:hover {
+  padding-left: 0.6rem;
+  color: var(--ember);
+}
+.category-rows__num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+.category-rows__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  letter-spacing: -0.02em;
+}
+.category-rows svg {
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,119 @@
+.auth {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  flex: 1;
+  padding-top: clamp(2rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+/* the ticket */
+.auth__stub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--line-hi);
+  border-radius: 10px;
+  transform: rotate(-1.5deg);
+}
+.auth__stub::before,
+.auth__stub::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 62%;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line-hi);
+  clip-path: inset(0 0 0 50%);
+}
+.auth__stub::after {
+  left: auto;
+  right: 0;
+  margin: -11px -12px 0 0;
+  clip-path: inset(0 50% 0 0);
+}
+
+.auth__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.auth__perf {
+  position: absolute;
+  left: 1.2rem;
+  right: 1.2rem;
+  top: 62%;
+  border-top: 2px dashed var(--line-hi);
+}
+
+.auth__serial {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ember);
+  letter-spacing: 0.06em;
+}
+
+.auth__panel {
+  max-width: 440px;
+  width: 100%;
+}
+.auth__panel h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0.5rem 0 1.75rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.auth-form__error {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #5a2a31;
+  border-radius: var(--radius);
+  background: rgba(255, 101, 117, 0.08);
+  color: var(--red);
+  font-size: 0.92rem;
+}
+.auth-form__note {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+.auth-form .btn {
+  margin-top: 0.4rem;
+}
+.auth-form__switch {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+.auth-form__switch a {
+  color: var(--text);
+}
+.auth-form__switch a:hover {
+  color: var(--ember);
+}
+
+@media (max-width: 860px) {
+  .auth {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .auth__stub {
+    display: none;
+  }
+}

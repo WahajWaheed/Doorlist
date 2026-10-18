@@ -1,0 +1,183 @@
+.my__head {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.my__head h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+.my__head p:last-child {
+  color: var(--text-dim);
+}
+
+.my__tabs {
+  display: flex;
+  gap: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.my__tab {
+  position: relative;
+  padding: 0.7rem 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.my__tab:hover {
+  color: var(--text);
+}
+.my__tab.is-active {
+  color: var(--text);
+  font-weight: 600;
+}
+.my__tab.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ember);
+}
+.my__count {
+  margin-left: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.my__list {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* each registration is a ticket: date stub | details | actions */
+.reg {
+  position: relative;
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.reg::before,
+.reg::after {
+  content: '';
+  position: absolute;
+  left: 78px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+.reg::before {
+  top: -7px;
+  clip-path: inset(50% 0 0 0);
+}
+.reg::after {
+  bottom: -7px;
+  clip-path: inset(0 0 50% 0);
+}
+.reg.is-done {
+  opacity: 0.72;
+}
+
+.reg__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  gap: 1px;
+  padding: 1rem 0.5rem;
+  border-right: 1px dashed var(--line-hi);
+}
+.reg__month {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.reg.is-done .reg__month {
+  color: var(--text-faint);
+}
+.reg__day {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+.reg__weekday {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.reg__main {
+  min-width: 0;
+  padding: 1rem 1.25rem;
+}
+.reg__main h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+.reg__main h3 a {
+  text-decoration: none;
+}
+.reg__main h3 a:hover {
+  color: var(--ember);
+}
+.reg__meta {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+.reg__stamp {
+  margin-top: 0.5rem;
+}
+
+.reg__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem 1rem 0;
+}
+.reg__badge {
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--line-hi);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.reg__badge--warn {
+  border-color: #5a2a31;
+  color: var(--red);
+}
+
+@media (max-width: 720px) {
+  .reg {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+  .reg::before,
+  .reg::after {
+    left: 66px;
+  }
+  .reg__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding: 0 1rem 1rem;
+  }
+}

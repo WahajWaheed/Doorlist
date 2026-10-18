@@ -1,0 +1,163 @@
+.ev-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.ev-card:hover,
+.ev-card:focus-within {
+  border-color: var(--line-hi);
+  transform: translateY(-2px);
+}
+
+.ev-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-raise);
+}
+.ev-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.ev-card:hover .ev-card__media img {
+  transform: scale(1.035);
+}
+
+.ev-card__placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-style: italic;
+  color: var(--line-hi);
+  background: repeating-linear-gradient(135deg, transparent 0 10px, rgba(255, 255, 255, 0.025) 10px 11px);
+}
+
+.ev-card__tag,
+.ev-card__flag {
+  position: absolute;
+  top: 0.6rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  background: rgba(10, 14, 19, 0.85);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ev-card__tag {
+  left: 0.6rem;
+  color: var(--teal);
+}
+.ev-card__flag {
+  right: 0.6rem;
+  color: var(--amber);
+}
+.ev-card__flag--cancelled {
+  color: var(--red);
+}
+
+/* the date stub: separated from the details by a perforated edge */
+.ev-card__body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  flex: 1;
+}
+.ev-card__body::before,
+.ev-card__body::after {
+  content: '';
+  position: absolute;
+  left: 58px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+.ev-card__body::before {
+  top: -7px;
+}
+.ev-card__body::after {
+  bottom: -7px;
+}
+
+.ev-card__stub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 0.9rem 0.4rem;
+  border-right: 1px dashed var(--line-hi);
+  text-align: center;
+}
+.ev-card__month {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.ev-card__day {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.ev-card__weekday {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.ev-card__info {
+  min-width: 0;
+  padding: 0.9rem 1rem 1rem;
+}
+.ev-card__info h3 {
+  font-size: 1.12rem;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ev-card__info h3 a {
+  text-decoration: none;
+}
+.ev-card__info h3 a::after {
+  /* make the whole card clickable via the title link */
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+.ev-card__info h3 a:hover {
+  color: var(--ember);
+}
+.ev-card__place {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ev-card__time {
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-faint);
+}

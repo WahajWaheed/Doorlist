@@ -1,0 +1,85 @@
+/* ---------- loading skeletons ---------- */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-hi) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+  border-radius: 3px;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-raise);
+}
+.skeleton-card__img {
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+}
+.skeleton-card__body {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+}
+.skeleton-line {
+  height: 0.8rem;
+}
+.skeleton-line--title {
+  height: 1.15rem;
+  width: 80%;
+}
+.skeleton-line--short {
+  width: 45%;
+}
+
+/* ---------- error + notice boxes ---------- */
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 2.5rem 1.5rem;
+  border: 1px dashed var(--line-hi);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--text-dim);
+}
+.state-box h3 {
+  font-size: 1.35rem;
+  color: var(--text);
+}
+.state-box p {
+  max-width: 52ch;
+}
+.state-box--error {
+  border-color: #5a2a31;
+  color: var(--text-dim);
+}
+.state-box--error > svg {
+  color: var(--red);
+}
+.state-box--compact {
+  padding: 1.25rem;
+}
+.state-box__steps {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  text-align: left;
+  font-size: 0.92rem;
+}
+.state-box__steps code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 0.1rem 0.35rem;
+  background: var(--surface-hi);
+  border-radius: 3px;
+  color: var(--teal);
+}

@@ -1,0 +1,76 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.field__control {
+  position: relative;
+  display: flex;
+}
+
+/* shared by every text-like control in the app */
+.input,
+.field__control input {
+  width: 100%;
+  padding: 0.78rem 0.9rem;
+  background: var(--bg-raise);
+  border: 1px solid var(--line-hi);
+  border-radius: var(--radius);
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s;
+}
+.input::placeholder,
+.field__control input::placeholder {
+  color: var(--text-faint);
+}
+.input:hover,
+.field__control input:hover {
+  border-color: var(--text-faint);
+}
+.input:focus,
+.field__control input:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: var(--surface);
+}
+
+.field.has-error input {
+  border-color: var(--red);
+}
+
+.field__reveal {
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+}
+.field__reveal:hover {
+  color: var(--text);
+}
+.field__control input[type='password'],
+.field__control input[type='text'] {
+  padding-right: 2.6rem;
+}
+
+.field__error {
+  color: var(--red);
+  font-size: 0.85rem;
+}
+.field__hint {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}

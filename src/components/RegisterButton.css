@@ -1,0 +1,29 @@
+.register {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.register__done {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(95, 212, 154, 0.4);
+  border-radius: var(--radius);
+  background: rgba(95, 212, 154, 0.08);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.register__hint {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+.register__hint a {
+  color: var(--text);
+}
+.register__hint a:hover {
+  color: var(--ember);
+}
